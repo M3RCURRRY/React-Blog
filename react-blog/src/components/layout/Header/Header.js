@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../../../utils/AuthContext";
 import Button from "../../controls/Button/Button";
 import Modal from "../../modals/Modal";
+import RegisterModal from "../../modals/RegisterModal/RegisterModal";
 import SignModal from "../../modals/SignModal/SignModal";
 import styles from "./Header.module.scss";
 
@@ -31,7 +32,7 @@ function Header() {
       <Modal>
         {!modal ? null : modal === "sign" ? (
           <SignModal onClose={() => setModal(null)} />
-        ) : null}
+        ) : <RegisterModal onClose={() => setModal(null)} />}
       </Modal>
     </>
   );
