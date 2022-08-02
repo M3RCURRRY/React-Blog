@@ -1,0 +1,13 @@
+$position: fixed;
+$fullsreen-width: 100%;
+$fullsreen-height: 100vh;
+$modal-width: 50%;
+$modal-height: auto;
+
+.modalContainer {
+  position: $position;
+  z-index: 999;
+  width: $fullsreen-width;
+  height: $fullsreen-height;
+  background-color: rgba(0, 0, 0, 0.5);
+}

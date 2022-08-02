@@ -1,0 +1,36 @@
+@import "../../colors";
+
+header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: $background;
+  color: #fff;
+  padding: 10px;
+}
+
+h1 {
+  text-shadow: $shadow 1px 0 10px;
+}
+
+.space {
+  width: 25%;
+}
+
+.container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1200px) {
+  .space {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+  }
+}

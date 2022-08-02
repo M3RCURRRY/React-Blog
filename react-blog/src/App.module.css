@@ -1,0 +1,11 @@
+.fixedBackground {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #aeaaa9;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}
