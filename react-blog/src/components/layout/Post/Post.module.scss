@@ -1,0 +1,20 @@
+@import "../../colors";
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  border: 1px solid $border;
+  border-radius: 10px;
+
+  color: $font-color;
+  background-color: $foreground;
+
+  padding: 10px;
+}
+
+section > h2 {
+  color: #fff;
+  text-align: center;
+}
