@@ -1,25 +1,90 @@
-@import "../../colors";
-
-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  
-  border: 1px solid $border;
-  border-radius: 10px;
-
-  color: $font-color;
-  background-color: $foreground;
-
-  padding: 10px;
+.desktopPost {
+  min-height: 300px;
+  width: 30%;
 }
 
-section > h2 {
+.tabletPost {
+  min-height: 260px;
+  width: 45%;
+}
+
+.mobilePost {
+  min-height: 210px;
+  width: 100%;
+}
+
+.desktopPost, .tabletPost, .mobilePost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #212529;
   color: #fff;
+
+  border-radius: 10px;
+  margin: 5px;
+
+  -webkit-box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.6); 
+}
+
+.desktopHeader, .tabletHeader, .mobileHeader {
+  margin: 10px;
   text-align: center;
 }
 
-.comments {
+.desktopHeader {
+  min-height: 90px;
+}
+
+.tabletHeader {
+  min-height: 65px;
+}
+
+.mobileHeader {
+  min-height: 40px;
+}
+
+.limiter {
+  width: 100%;
+  height: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.authorLink {
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.authorLink:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.postFooter {
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.postBody {
+  text-align: justify;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.tags {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.tag {
+  margin-left: 5px;
 }

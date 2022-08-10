@@ -1,35 +1,44 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styles from "./App.module.css";
-import ContentArea from "./components/layout/ContentArea/ContentArea";
 import Header from "./components/layout/Header/Header";
+import PostsPage from "./components/pages/PostsPage/PostsPage";
 import AuthContext from "./utils/AuthContext";
 
 const auth = {
-  isAuth: false,
+  isAuthed: false,
   username: null,
-  isAdmin: false,
+  maidenName: null,
+  image: null,
+  email: null,
 };
 
 function App() {
   const [authData, setAuthData] = useState(auth);
-  const [modal, setModal] = useState(null);
-
-  /*
-  <button onClick={() => setAuthData({ ...authData, isAuth: true })}>
-            Auth Me!
-          </button>
-  */
 
   return (
     <AuthContext.Provider value={{ authData, setAuthData }}>
-      <div className={styles.fixedBackground}>
+      <BrowserRouter>
         <div className={styles.layout}>
           <Header />
-          <ContentArea />
+          <Switch>
+            <Route path="/">
+              <PostsPage />
+            </Route>
+          </Switch>
         </div>
-      </div>
+      </BrowserRouter>
     </AuthContext.Provider>
   );
 }
 
 export default App;
+
+let t = {
+  id: 1,
+  title: "His mother had always taught him",
+  body: "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+  userId: 9,
+  tags: ["history", "american", "crime"],
+  reactions: 2,
+};
