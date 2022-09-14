@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 
 const queries = [
   "(max-width: 929px) and (orientation: portrait)", // portrait mobile
@@ -7,6 +7,8 @@ const queries = [
   "(min-width: 1366px) and (max-width: 1919px)", // laptop
   "(min-width: 1920px)" // desktop or high-res laptop
 ];
+
+// query: width 100 <-> 200 : true/false
 
 export function useMedia() {
   const mediaQLists = queries.map((q) => matchMedia(q));

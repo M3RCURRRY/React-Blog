@@ -1,13 +1,22 @@
 import styles from "./Post.module.scss";
 import { useMedia } from "./../../../hooks/useMedia";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Badge } from "react-bootstrap";
 import ForeignUserModal from "../../modals/ForeignUserModal/ForeignUserModal";
 import Modal from "../../modals/Modal";
+import AuthContext from "../../../utils/AuthContext";
 
 function Post(props) {
+  const ctx = useContext(AuthContext);
+  const isAuthed = ctx.authData.isAuthed;
   const [showAuthor, setShowAuthor] = useState(false);
   const { title, body, userId, tags, reactions } = props.data;
+
+  const expandHandler = (e) => {
+    if (e.target.id !== "author") {
+      console.log("Aboba");
+    }
+  }
 
   useEffect(() => {
     return () => setShowAuthor(false);
@@ -18,7 +27,7 @@ function Post(props) {
 
   return (
     <>
-      {showAuthor && (
+      {showAuthor && isAuthed && (
         <Modal>
           <ForeignUserModal
             show={showAuthor}
@@ -26,8 +35,10 @@ function Post(props) {
             userId={userId}
           />
         </Modal>
-      )}
+        )
+      }
       <section
+        onClick={(e) => expandHandler(e)}
         className={
           isPortraitMobile
             ? styles.mobilePost
@@ -53,6 +64,7 @@ function Post(props) {
         </div>
         <div className={styles.postFooter}>
           <span
+            id="author"
             onClick={() => setShowAuthor(true)}
             className={styles.authorLink}
           >
